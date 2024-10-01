@@ -1,0 +1,59 @@
+The Shawshank Redemption,Tim Robbins,1994,Drama
+Pulp Fiction,John Travolta,1994,Crime
+Forrest Gump,Tom Hanks,1994,Drama
+The Matrix,Keanu Reeves,1999,Sci-Fi
+Fight Club,Brad Pitt,1999,Drama
+Goodfellas,Robert De Niro,1990,Crime
+Braveheart,Mel Gibson,1995,Drama
+Titanic,Leonardo DiCaprio,1997,Romance
+The Silence of the Lambs,Anthony Hopkins,1991,Horror
+Saving Private Ryan,Tom Hanks,1998,War
+Jurassic Park,Sam Neill,1993,Sci-Fi
+Se7en,Brad Pitt,1995,Thriller
+The Sixth Sense,Bruce Willis,1999,Thriller
+Terminator 2: Judgment Day,Arnold Schwarzenegger,1991,Sci-Fi
+L.A. Confidential,Russell Crowe,1997,Crime
+Schindler's List,Liam Neeson,1993,Drama
+The Lion King,Matthew Broderick,1994,Animation
+The Big Lebowski,Jeff Bridges,1998,Comedy
+The Usual Suspects,Kevin Spacey,1995,Crime
+A Few Good Men,Tom Cruise,1992,Drama
+Scream,Neve Campbell,1996,Horror
+Speed,Keanu Reeves,1994,Action
+The Fugitive,Harrison Ford,1993,Thriller
+Heat,Al Pacino,1995,Crime
+Independence Day,Will Smith,1996,Sci-Fi
+The Green Mile,Tom Hanks,1999,Drama
+Ghost,Patrick Swayze,1990,Romance
+American Beauty,Kevin Spacey,1999,Drama
+Dances with Wolves,Kevin Costner,1990,Drama
+Men in Black,Will Smith,1997,Sci-Fi
+The Blair Witch Project,Heather Donahue,1999,Horror
+Toy Story,Tom Hanks,1995,Animation
+Apollo 13,Tom Hanks,1995,Drama
+Total Recall,Arnold Schwarzenegger,1990,Sci-Fi
+The Rock,Sean Connery,1996,Action
+Mulan,Ming-Na Wen,1998,Animation
+As Good as It Gets,Jack Nicholson,1997,Comedy
+Starship Troopers,Casper Van Dien,1997,Sci-Fi
+Armageddon,Bruce Willis,1998,Sci-Fi
+The Thin Red Line,Sean Penn,1998,War
+The Insider,Russell Crowe,1999,Drama
+Donnie Brasco,Johnny Depp,1997,Crime
+Jerry Maguire,Tom Cruise,1996,Romance
+True Lies,Arnold Schwarzenegger,1994,Action
+The Truman Show,Jim Carrey,1998,Drama
+A Bug's Life,Dave Foley,1998,Animation
+Sleepy Hollow,Johnny Depp,1999,Horror
+Patch Adams,Robin Williams,1998,Comedy
+The Negotiator,Samuel L. Jackson,1998,Thriller
+The Mummy,Brendan Fraser,1999,Action
+The Game,Michael Douglas,1997,Thriller
+The Mask,Jim Carrey,1994,Comedy
+10 Things I Hate About You,Heath Ledger,1999,Romance
+Notting Hill,Hugh Grant,1999,Romance
+Run Lola Run,Franka Potente,1998,Action
+Clueless,Alicia Silverstone,1995,Comedy
+The Full Monty,Robert Carlyle,1997,Comedy
+Office Space,Ron Livingston,1999,Comedy
+She's All That,Freddie Prinze Jr.,1999,Romance
