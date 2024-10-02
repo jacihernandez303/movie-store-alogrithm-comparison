@@ -1,8 +1,9 @@
 package moviestore;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
-
 
 public class MovieStoreMain {
     private static final Scanner scanner = new Scanner(System.in);
@@ -12,7 +13,7 @@ public class MovieStoreMain {
         boolean isManager = false;
         System.out.print("Enter password for manager mode (or press Enter for user mode): ");
         String password = scanner.nextLine();
-        
+
         if (MovieStore.isManagerPassword(password)) {
             isManager = true;
             System.out.println("Manager mode activated.");
@@ -62,19 +63,27 @@ public class MovieStoreMain {
     }
 
     private static void searchMovies() {
-        System.out.print("Enter search query: ");
-        String query = scanner.nextLine();
         System.out.print("Search by (title/actor/year/genre): ");
         String searchBy = scanner.nextLine();
-        System.out.print("Choose search algorithm (linear/binary): ");
-        String algorithm = scanner.nextLine();
+        System.out.print("Enter search query: ");
+        String query = scanner.nextLine();
+        String algorithm;
+        do {
+            System.out.print("Choose search algorithm (linear/binary): ");
+            algorithm = scanner.nextLine().toLowerCase();
+        } while (!algorithm.equals("linear") && !algorithm.equals("binary"));
 
-        List<Movie> results = store.searchAlgorithm(query, searchBy, algorithm);
+        Map<String, Object> searchResult = store.searchAlgorithm(query, searchBy, algorithm);
+        @SuppressWarnings("unchecked")
+        List<Movie> results = (List<Movie>) searchResult.get("results");
+        long timeTaken = (long) searchResult.get("timeTaken");
+
         if (results.isEmpty()) {
             System.out.println("No movies found.");
         } else {
             results.forEach(System.out::println);
         }
+        System.out.println("Search completed in " + timeTaken + " milliseconds.");
     }
 
     private static void sortMovies() {
@@ -83,8 +92,18 @@ public class MovieStoreMain {
         System.out.print("Choose sorting algorithm (bubblesort/selectionsort/insertionsort/mergesort): ");
         String algorithm = scanner.nextLine();
 
-        store.sortMovies(sortBy, algorithm);
-        System.out.println("Movies sorted successfully.");
+        long timeTaken = store.sortMovies(sortBy, algorithm);
+        System.out.println("Sorting completed in " + timeTaken + " milliseconds.");
+
+        try {
+            store.writeMoviesToFile("output.txt");
+            System.out.println("Sorted movies have been written to output.txt");
+        } catch (IOException e) {
+            System.out.println("Error writing to file: " + e.getMessage());
+        }
+
+        System.out.println("Sorted Movies:");
+        store.displayAllMovies();
     }
 
     private static void addMovie() {

@@ -2,6 +2,7 @@ package moviestore;
 
 import java.io.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Manages the movie store operations including adding, removing, searching, and sorting movies.
@@ -77,36 +78,12 @@ public class MovieStore {
     }
 
     /**
-     * Searches for movies based on a query and search criteria.
-     * @param query The search query.
-     * @param searchBy The search criteria (title, actor, year, or genre).
-     * @return A list of movies matching the search criteria.
-     */
-    public List<Movie> searchMovies(String query, String searchBy) {
-        return movies.stream()
-                .filter(movie -> {
-                    switch (searchBy.toLowerCase()) {
-                        case "title":
-                            return movie.getTitle().toLowerCase().contains(query.toLowerCase());
-                        case "actor":
-                            return movie.getActor().toLowerCase().contains(query.toLowerCase());
-                        case "year":
-                            return String.valueOf(movie.getYear()).equals(query);
-                        case "genre":
-                            return movie.getGenre().toLowerCase().contains(query.toLowerCase());
-                        default:
-                            return false;
-                    }
-                })
-                .toList();
-    }
-
-    /**
      * Sorts the movies based on the given criteria and algorithm.
      * @param sortBy The sorting criteria (title, actor, year, or genre).
      * @param algorithm The sorting algorithm to use.
+     * @return The time taken to sort in milliseconds.
      */
-    public void sortMovies(String sortBy, String algorithm) {
+    public long sortMovies(String sortBy, String algorithm) {
         Comparator<Movie> comparator = switch (sortBy.toLowerCase()) {
             case "title" -> Comparator.comparing(Movie::getTitle);
             case "actor" -> Comparator.comparing(Movie::getActor);
@@ -115,6 +92,7 @@ public class MovieStore {
             default -> throw new IllegalArgumentException("Invalid sort criteria");
         };
 
+        long startTime = System.currentTimeMillis();
         switch (algorithm.toLowerCase()) {
             case "bubblesort" -> bubbleSort(movies, comparator);
             case "selectionsort" -> selectionSort(movies, comparator);
@@ -122,6 +100,8 @@ public class MovieStore {
             case "mergesort" -> mergeSort(movies, comparator);
             default -> throw new IllegalArgumentException("Invalid sorting algorithm");
         }
+        long endTime = System.currentTimeMillis();
+        return endTime - startTime;
     }
 
     /**
@@ -231,17 +211,22 @@ public class MovieStore {
      * @param query The search query.
      * @param searchBy The search criteria.
      * @param algorithm The search algorithm to use.
-     * @return A list of movies matching the search criteria.
+     * @return A Map containing the search results and the time taken in milliseconds.
      */
-    public List<Movie> searchAlgorithm(String query, String searchBy, String algorithm) {
-        switch (algorithm.toLowerCase()) {
-            case "linear":
-                return linearSearch(query, searchBy);
-            case "binary":
-                return binarySearch(query, searchBy);
-            default:
-                throw new IllegalArgumentException("Invalid search algorithm");
-        }
+    public Map<String, Object> searchAlgorithm(String query, String searchBy, String algorithm) {
+        long startTime = System.currentTimeMillis();
+        List<Movie> results = switch (algorithm.toLowerCase()) {
+            case "linear" -> linearSearch(query, searchBy);
+            case "binary" -> binarySearch(query, searchBy);
+            default -> throw new IllegalArgumentException("Invalid search algorithm");
+        };
+        long endTime = System.currentTimeMillis();
+        long timeTaken = endTime - startTime;
+
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("results", results);
+        resultMap.put("timeTaken", timeTaken);
+        return resultMap;
     }
 
     /**
@@ -251,7 +236,9 @@ public class MovieStore {
      * @return A list of movies matching the search criteria.
      */
     private List<Movie> linearSearch(String query, String searchBy) {
-        return searchMovies(query, searchBy);
+        return movies.stream()
+                .filter(movie -> isMatch(movie, query, searchBy))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -292,19 +279,7 @@ public class MovieStore {
 
             if (comparison == 0) {
                 // Found a match, add it to the result and check adjacent elements
-                result.add(midMovie);
-                // Check left
-                int leftIndex = mid - 1;
-                while (leftIndex >= 0 && movies.get(leftIndex).getTitle().equalsIgnoreCase(query)) {
-                    result.add(movies.get(leftIndex));
-                    leftIndex--;
-                }
-                // Check right
-                int rightIndex = mid + 1;
-                while (rightIndex < movies.size() && movies.get(rightIndex).getTitle().equalsIgnoreCase(query)) {
-                    result.add(movies.get(rightIndex));
-                    rightIndex++;
-                }
+                addMatchingMovies(result, mid, query, searchBy);
                 break;
             } else if (comparison < 0) {
                 left = mid + 1;
@@ -317,11 +292,70 @@ public class MovieStore {
     }
 
     /**
+     * Helper method to add all matching movies to the result list.
+     * @param result The list to add matching movies to.
+     * @param mid The index of the first match found.
+     * @param query The search query.
+     * @param searchBy The search criteria.
+     */
+    private void addMatchingMovies(List<Movie> result, int mid, String query, String searchBy) {
+        // Check left
+        int leftIndex = mid;
+        while (leftIndex >= 0 && isMatch(movies.get(leftIndex), query, searchBy)) {
+            result.add(movies.get(leftIndex));
+            leftIndex--;
+        }
+
+        // Check right (excluding mid as it's already added)
+        int rightIndex = mid + 1;
+        while (rightIndex < movies.size() && isMatch(movies.get(rightIndex), query, searchBy)) {
+            result.add(movies.get(rightIndex));
+            rightIndex++;
+        }
+    }
+
+    /**
+     * Helper method to check if a movie matches the search criteria.
+     * @param movie The movie to check.
+     * @param query The search query.
+     * @param searchBy The search criteria.
+     * @return true if the movie matches, false otherwise.
+     */
+    private boolean isMatch(Movie movie, String query, String searchBy) {
+        switch (searchBy.toLowerCase()) {
+            case "title":
+                return movie.getTitle().toLowerCase().contains(query.toLowerCase());
+            case "actor":
+                return movie.getActor().toLowerCase().contains(query.toLowerCase());
+            case "year":
+                return String.valueOf(movie.getYear()).equals(query);
+            case "genre":
+                return movie.getGenre().toLowerCase().contains(query.toLowerCase());
+            default:
+                return false;
+        }
+    }
+
+    /**
      * Checks if the provided password is the manager password.
      * @param password The password to check.
      * @return true if the password is correct, false otherwise.
      */
     public static boolean isManagerPassword(String password) {
         return MANAGER_PASSWORD.equals(password);
+    }
+
+    /**
+     * Writes the current list of movies to a file.
+     * @param filename The name of the file to write to.
+     * @throws IOException If an I/O error occurs.
+     */
+    public void writeMoviesToFile(String filename) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            for (Movie movie : movies) {
+                writer.write(movie.toString());
+                writer.newLine();
+            }
+        }
     }
 }

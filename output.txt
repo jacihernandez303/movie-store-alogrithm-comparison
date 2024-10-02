@@ -1,0 +1,60 @@
+Title: Heat, Actor: Al Pacino, Year: 1995, Genre: Crime
+Title: Clueless, Actor: Alicia Silverstone, Year: 1995, Genre: Comedy
+Title: The Silence of the Lambs, Actor: Anthony Hopkins, Year: 1991, Genre: Horror
+Title: Terminator 2: Judgment Day, Actor: Arnold Schwarzenegger, Year: 1991, Genre: Sci-Fi
+Title: Total Recall, Actor: Arnold Schwarzenegger, Year: 1990, Genre: Sci-Fi
+Title: True Lies, Actor: Arnold Schwarzenegger, Year: 1994, Genre: Action
+Title: Fight Club, Actor: Brad Pitt, Year: 1999, Genre: Drama
+Title: Se7en, Actor: Brad Pitt, Year: 1995, Genre: Thriller
+Title: The Mummy, Actor: Brendan Fraser, Year: 1999, Genre: Action
+Title: The Sixth Sense, Actor: Bruce Willis, Year: 1999, Genre: Thriller
+Title: Armageddon, Actor: Bruce Willis, Year: 1998, Genre: Sci-Fi
+Title: Starship Troopers, Actor: Casper Van Dien, Year: 1997, Genre: Sci-Fi
+Title: A Bug's Life, Actor: Dave Foley, Year: 1998, Genre: Animation
+Title: Run Lola Run, Actor: Franka Potente, Year: 1998, Genre: Action
+Title: She's All That, Actor: Freddie Prinze Jr., Year: 1999, Genre: Romance
+Title: The Fugitive, Actor: Harrison Ford, Year: 1993, Genre: Thriller
+Title: 10 Things I Hate About You, Actor: Heath Ledger, Year: 1999, Genre: Romance
+Title: The Blair Witch Project, Actor: Heather Donahue, Year: 1999, Genre: Horror
+Title: Notting Hill, Actor: Hugh Grant, Year: 1999, Genre: Romance
+Title: As Good as It Gets, Actor: Jack Nicholson, Year: 1997, Genre: Comedy
+Title: The Big Lebowski, Actor: Jeff Bridges, Year: 1998, Genre: Comedy
+Title: The Truman Show, Actor: Jim Carrey, Year: 1998, Genre: Drama
+Title: The Mask, Actor: Jim Carrey, Year: 1994, Genre: Comedy
+Title: Pulp Fiction, Actor: John Travolta, Year: 1994, Genre: Crime
+Title: Donnie Brasco, Actor: Johnny Depp, Year: 1997, Genre: Crime
+Title: Sleepy Hollow, Actor: Johnny Depp, Year: 1999, Genre: Horror
+Title: The Matrix, Actor: Keanu Reeves, Year: 1999, Genre: Sci-Fi
+Title: Speed, Actor: Keanu Reeves, Year: 1994, Genre: Action
+Title: Dances with Wolves, Actor: Kevin Costner, Year: 1990, Genre: Drama
+Title: The Usual Suspects, Actor: Kevin Spacey, Year: 1995, Genre: Crime
+Title: American Beauty, Actor: Kevin Spacey, Year: 1999, Genre: Drama
+Title: Titanic, Actor: Leonardo DiCaprio, Year: 1997, Genre: Romance
+Title: Schindler's List, Actor: Liam Neeson, Year: 1993, Genre: Drama
+Title: Get Over It, Actor: Martin Short, Year: 2001, Genre: Comedy
+Title: The Lion King, Actor: Matthew Broderick, Year: 1994, Genre: Animation
+Title: Braveheart, Actor: Mel Gibson, Year: 1995, Genre: Drama
+Title: The Game, Actor: Michael Douglas, Year: 1997, Genre: Thriller
+Title: Mulan, Actor: Ming-Na Wen, Year: 1998, Genre: Animation
+Title: Scream, Actor: Neve Campbell, Year: 1996, Genre: Horror
+Title: Ghost, Actor: Patrick Swayze, Year: 1990, Genre: Romance
+Title: The Full Monty, Actor: Robert Carlyle, Year: 1997, Genre: Comedy
+Title: Goodfellas, Actor: Robert De Niro, Year: 1990, Genre: Crime
+Title: Patch Adams, Actor: Robin Williams, Year: 1998, Genre: Comedy
+Title: Office Space, Actor: Ron Livingston, Year: 1999, Genre: Comedy
+Title: L.A. Confidential, Actor: Russell Crowe, Year: 1997, Genre: Crime
+Title: The Insider, Actor: Russell Crowe, Year: 1999, Genre: Drama
+Title: Jurassic Park, Actor: Sam Neill, Year: 1993, Genre: Sci-Fi
+Title: The Negotiator, Actor: Samuel L. Jackson, Year: 1998, Genre: Thriller
+Title: The Rock, Actor: Sean Connery, Year: 1996, Genre: Action
+Title: The Thin Red Line, Actor: Sean Penn, Year: 1998, Genre: War
+Title: The Shawshank Redemption, Actor: Tim Robbins, Year: 1994, Genre: Drama
+Title: A Few Good Men, Actor: Tom Cruise, Year: 1992, Genre: Drama
+Title: Jerry Maguire, Actor: Tom Cruise, Year: 1996, Genre: Romance
+Title: Forrest Gump, Actor: Tom Hanks, Year: 1994, Genre: Drama
+Title: Saving Private Ryan, Actor: Tom Hanks, Year: 1998, Genre: War
+Title: The Green Mile, Actor: Tom Hanks, Year: 1999, Genre: Drama
+Title: Toy Story, Actor: Tom Hanks, Year: 1995, Genre: Animation
+Title: Apollo 13, Actor: Tom Hanks, Year: 1995, Genre: Drama
+Title: Independence Day, Actor: Will Smith, Year: 1996, Genre: Sci-Fi
+Title: Men in Black, Actor: Will Smith, Year: 1997, Genre: Sci-Fi
