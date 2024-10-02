@@ -145,7 +145,7 @@ public class MovieStoreMain {
         String genre = scanner.nextLine();
 
         store.addMovie(new Movie(title, actor, year, genre));
-        System.out.println("Movie added successfully.");
+        System.out.println("Movie added successfully and movies.txt updated.");
     }
 
     /**
@@ -156,7 +156,7 @@ public class MovieStoreMain {
         System.out.print("Enter the title of the movie to remove: ");
         String title = scanner.nextLine();
         if (store.removeMovie(title)) {
-            System.out.println("Movie removed successfully.");
+            System.out.println("Movie removed successfully and movies.txt updated.");
         } else {
             System.out.println("Movie not found.");
         }

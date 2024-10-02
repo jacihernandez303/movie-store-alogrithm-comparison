@@ -38,20 +38,41 @@ public class MovieStore {
     }
 
     /**
-     * Adds a new movie to the store.
+     * Updates the movies.txt file with the current list of movies.
+     * This method should be called after adding or removing a movie.
+     */
+    private void updateMoviesFile() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("movies.txt"))) {
+            for (Movie movie : movies) {
+                writer.write(String.format("%s,%s,%d,%s",
+                        movie.getTitle(), movie.getActor(), movie.getYear(), movie.getGenre()));
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Error writing to movies.txt: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Adds a new movie to the store and updates the file.
      * @param movie The movie to add.
      */
     public void addMovie(Movie movie) {
         movies.add(movie);
+        updateMoviesFile();
     }
 
     /**
-     * Removes a movie from the store by its title.
+     * Removes a movie from the store by its title and updates the file.
      * @param title The title of the movie to remove.
      * @return true if the movie was removed, false otherwise.
      */
     public boolean removeMovie(String title) {
-        return movies.removeIf(movie -> movie.getTitle().equalsIgnoreCase(title));
+        boolean removed = movies.removeIf(movie -> movie.getTitle().equalsIgnoreCase(title));
+        if (removed) {
+            updateMoviesFile();
+        }
+        return removed;
     }
 
     /**
@@ -322,18 +343,13 @@ public class MovieStore {
      * @return true if the movie matches, false otherwise.
      */
     private boolean isMatch(Movie movie, String query, String searchBy) {
-        switch (searchBy.toLowerCase()) {
-            case "title":
-                return movie.getTitle().toLowerCase().contains(query.toLowerCase());
-            case "actor":
-                return movie.getActor().toLowerCase().contains(query.toLowerCase());
-            case "year":
-                return String.valueOf(movie.getYear()).equals(query);
-            case "genre":
-                return movie.getGenre().toLowerCase().contains(query.toLowerCase());
-            default:
-                return false;
-        }
+        return switch (searchBy.toLowerCase()) {
+            case "title" -> movie.getTitle().toLowerCase().contains(query.toLowerCase());
+            case "actor" -> movie.getActor().toLowerCase().contains(query.toLowerCase());
+            case "year" -> String.valueOf(movie.getYear()).equals(query);
+            case "genre" -> movie.getGenre().toLowerCase().contains(query.toLowerCase());
+            default -> false;
+        };
     }
 
     /**
